@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "prod": "node index.js",
     "dev": "nodemon index.js",
+    "test": "ts-jest --forceExit --detectOpenHandles  --maxWorkers=1",
+    "test:watch": "npm run test -- --watch-all",
+    "test:watch:fast": "npm run test -- --watch",
+    "test:coverage": "npm run test -- --coverage",
+    "test:badges": "npm run test:coverage && jest-coverage-badges",
     "sequelize": "sequelize-cli"
   },
   "author": "",
