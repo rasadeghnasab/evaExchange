@@ -14,7 +14,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    build: ./bezkoder-app
+    build: ./web
     restart: unless-stopped
     env_file: ./.env
     ports:
@@ -25,6 +25,8 @@ services:
       - DB_PASSWORD=$MYSQLDB_ROOT_PASSWORD
       - DB_NAME=$MYSQLDB_DATABASE
       - DB_PORT=$MYSQLDB_DOCKER_PORT
+    volumes:
+      - './:/home/node/app'
     stdin_open: true
     tty: true
 volumes:

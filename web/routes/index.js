@@ -9,6 +9,8 @@ const routeNotFoundMiddleware = require("../app/http/middlewares/routeNotFoundMi
 
 appRoutes.use('/api/', apiRoutes.routes(), apiRoutes.allowedMethods());
 
+console.log(appRoutes.stack.map(i => i.path));
+
 module.exports = (app) => {
     app.use(errorHandlerMiddleware);
     app.use(koaJson());

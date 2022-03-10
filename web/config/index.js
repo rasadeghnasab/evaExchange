@@ -1,4 +1,4 @@
-const loadConfigs = () => {
+const load = () => {
     const normalizedPath = require("path").join(__dirname);
     const files = require("fs").readdirSync(normalizedPath).filter((file) => file !== 'index.js');
 
@@ -14,7 +14,7 @@ const loadConfigs = () => {
 
 const get = (path, defaultVal = '') => {
     const parts = path.split('.');
-    let config = loadConfigs();
+    let config = load();
 
     try {
         for (const configKey of parts) {
