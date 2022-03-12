@@ -1,8 +1,8 @@
 const Router = require('@koa/router');
 const apiRoutes = new Router();
 
-const troopsRoutes = require('./trade');
+const tradeRoutes = require('./trade');
 
-apiRoutes.use("trade/", troopsRoutes.routes(), troopsRoutes.allowedMethods());
+apiRoutes.use('/trade', tradeRoutes.routes(), tradeRoutes.allowedMethods());
 
 module.exports = apiRoutes;
