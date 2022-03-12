@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(3),
             allowNull: false,
             set(value) {
+                if (value.length !== 3) {
+                    throw new Error('Share should has exactly 3 characters');
+                }
+
                 this.setDataValue('symbol', value.toString().toUpperCase());
             }
         },
