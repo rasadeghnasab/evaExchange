@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
          * The `models/index` file will call this method automatically.
          */
         static associate(models) {
-            Portfolio.belongsTo(models.User);
-            Portfolio.hasOne(models.Share);
+            Portfolio.User = Portfolio.belongsTo(models.User);
+            Portfolio.Share = Portfolio.hasOne(models.Share);
         }
     }
 
