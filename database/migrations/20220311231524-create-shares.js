@@ -11,6 +11,7 @@ module.exports = {
       symbol: {
         type: Sequelize.STRING(3),
         allowNull: false,
+        unique: true,
       },
       price: {
         type: Sequelize.DECIMAL(10, 2),
