@@ -1,7 +1,7 @@
 module.exports = (app) => {
     require("./logging");
     require("./routes")(app);
-    require("./database");
+    // require("./database");
 
     return require("./server")(app);
 };
