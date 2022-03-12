@@ -1,19 +1,20 @@
 const load = () => {
-    const normalizedPath = require("path").join(__dirname);
-    const files = require("fs").readdirSync(normalizedPath).filter((file) => file !== 'index.js');
-
     let configs = {};
+    const basename = require('path').basename(__filename);
 
-    files.forEach((config) => {
-        config = config.replace('.js', '');
-        configs[config] = require(`./${config}`)
-    });
+    require('fs')
+        .readdirSync(__dirname)
+        .filter(file => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
+        .forEach(config => {
+            config = config.replace('.js', '');
+            configs[config] = require(`./${config}`);
+        });
 
     return configs;
 }
 
-const get = (path, defaultVal = '') => {
-    const parts = path.split('.');
+const get = (configPath, defaultVal = '') => {
+    const parts = configPath.split('.');
     let config = load();
 
     try {

@@ -8,11 +8,11 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            user_id: {
+            userId: {
                 type: Sequelize.INTEGER,
                 references: {model: 'users', key: 'id'}
             },
-            share_id: {
+            shareId: {
                 type: Sequelize.INTEGER,
                 references: {model: 'shares', key: 'id'}
             },

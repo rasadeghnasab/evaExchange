@@ -8,6 +8,7 @@ module.exports = {
         database: process.env.DB_NAME,
         port: process.env.DB_PORT,
         dialect: "mysql",
+        migrationStorageTableName: "migrations",
         pool: {
             max: 5,
             min: 0,
@@ -22,6 +23,7 @@ module.exports = {
         database: process.env.DB_NAME,
         port: process.env.DB_PORT,
         dialect: "mysql",
+        migrationStorageTableName: "migrations",
         pool: {
             max: 5,
             min: 0,
@@ -36,6 +38,7 @@ module.exports = {
         database: process.env.DB_NAME,
         port: process.env.DB_PORT,
         dialect: "mysql",
+        migrationStorageTableName: "migrations",
         pool: {
             max: 5,
             min: 0,
