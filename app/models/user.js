@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
          * The `models/index` file will call this method automatically.
          */
         static associate(models) {
-            // define association here
             User.Portfolios = User.hasMany(models.Portfolio);
+            User.Shares = User.belongsToMany(models.Share, {through: models.Portfolio});
         }
     }
 

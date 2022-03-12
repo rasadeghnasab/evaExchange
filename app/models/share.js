@@ -8,9 +8,8 @@ module.exports = (sequelize, DataTypes) => {
          * The `models/index` file will call this method automatically.
          */
         static associate(models) {
-            // define association here
-            Share.User = Share.belongsToMany(models.User, {through: models.Portfolio});
             Share.Portfolios = Share.hasMany(models.Portfolio);
+            Share.Users = Share.belongsToMany(models.User, {through: models.Portfolio});
         }
     }
 
@@ -35,5 +34,6 @@ module.exports = (sequelize, DataTypes) => {
         modelName: 'Share',
         tableName: 'shares'
     });
+
     return Share;
 };

@@ -14,8 +14,14 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     Portfolio.init({
-        userId: DataTypes.INTEGER,
-        shareId: DataTypes.INTEGER,
+        userId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        shareId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
         amount: DataTypes.INTEGER
     }, {
         sequelize,
