@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             User.Portfolios = User.hasMany(models.Portfolio);
-            User.Shares = User.belongsToMany(models.Share, {through: models.Portfolio});
+            User.Shares = User.belongsToMany(models.Share, {through: models.Portfolio, foreignKey: 'shareId'});
         }
     }
 

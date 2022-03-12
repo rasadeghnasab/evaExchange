@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             Share.Portfolios = Share.hasMany(models.Portfolio);
-            Share.Users = Share.belongsToMany(models.User, {through: models.Portfolio});
+            Share.Users = Share.belongsToMany(models.User, {through: models.Portfolio, foreignKey: 'userId'});
         }
     }
 
