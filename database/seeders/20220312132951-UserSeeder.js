@@ -39,7 +39,7 @@ module.exports = {
          *   isBetaMember: false
          * }], {});
          */
-        await User.bulkCreate(users, {
+        const createdUsers = await User.bulkCreate(users, {
             individualHooks: true
         });
     },
