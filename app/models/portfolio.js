@@ -9,13 +9,19 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             Portfolio.User = Portfolio.belongsTo(models.User);
-            Portfolio.Share = Portfolio.hasOne(models.Share);
+            Portfolio.Share = Portfolio.belongsTo(models.Share);
         }
     }
 
     Portfolio.init({
-        userId: DataTypes.INTEGER,
-        shareId: DataTypes.INTEGER,
+        userId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        shareId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
         amount: DataTypes.INTEGER
     }, {
         sequelize,

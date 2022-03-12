@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
          * The `models/index` file will call this method automatically.
          */
         static associate(models) {
-            // define association here
+            Share.Portfolios = Share.hasMany(models.Portfolio);
+            Share.Users = Share.belongsToMany(models.User, {through: models.Portfolio, foreignKey: 'userId'});
         }
     }
 
@@ -16,6 +17,13 @@ module.exports = (sequelize, DataTypes) => {
         symbol: {
             type: DataTypes.STRING(3),
             allowNull: false,
+            set(value) {
+                if (value.length !== 3) {
+                    throw new Error('Share should has exactly 3 characters');
+                }
+
+                this.setDataValue('symbol', value.toString().toUpperCase());
+            }
         },
         price: {
             type: DataTypes.DECIMAL(10, 2),
@@ -26,5 +34,6 @@ module.exports = (sequelize, DataTypes) => {
         modelName: 'Share',
         tableName: 'shares'
     });
+
     return Share;
 };
