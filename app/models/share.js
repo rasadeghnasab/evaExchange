@@ -9,6 +9,8 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            Share.User = Share.belongsToMany(models.User, {through: models.Portfolio});
+            Share.Portfolios = Share.hasMany(models.Portfolio);
         }
     }
 
@@ -16,6 +18,9 @@ module.exports = (sequelize, DataTypes) => {
         symbol: {
             type: DataTypes.STRING(3),
             allowNull: false,
+            set(value) {
+                this.setDataValue('symbol', value.toString().toUpperCase());
+            }
         },
         price: {
             type: DataTypes.DECIMAL(10, 2),

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             Portfolio.User = Portfolio.belongsTo(models.User);
-            Portfolio.Share = Portfolio.hasOne(models.Share);
+            Portfolio.Share = Portfolio.belongsTo(models.Share);
         }
     }
 
