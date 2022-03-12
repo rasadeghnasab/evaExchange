@@ -1,3 +1,3 @@
 module.exports = {
-    port: process.env.NODE_LOCAL_PORT || 8000,
+    port: process.env.PORT || 8000,
 }

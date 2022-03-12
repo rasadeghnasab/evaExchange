@@ -18,6 +18,7 @@
   "dependencies": {
     "@koa/cors": "^3.1.0",
     "@koa/router": "^10.1.1",
+    "bcrypt": "^5.0.1",
     "dotenv": "^16.0.0",
     "koa": "^2.13.4",
     "koa-json": "^2.0.2",
