@@ -1,5 +1,3 @@
 const bcrypt = require('bcrypt');
 
-module.exports.bcrypt = async (myPlaintextPassword) => {
-    return await bcrypt.hash(myPlaintextPassword.toString(), 10);
-}
+module.exports.bcrypt = async (text) => await bcrypt.hash(text.toString(), 10);

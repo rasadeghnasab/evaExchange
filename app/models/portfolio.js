@@ -1,8 +1,4 @@
 const {Model} = require('sequelize');
-// const { User, Share } = require('../../app/models');
-// const Models = require('../models');
-
-// console.log({User});
 
 module.exports = (sequelize, DataTypes) => {
     class Portfolio extends Model {
